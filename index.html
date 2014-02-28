@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="de" ng-app>
+    <head>
+        <meta charset="utf-8">
+        <title>AngularJS playground</title>
+    </head>
+    <body>
+        <h1 ng-controller="PlaygroundController">{{message}}</h1>
+    </body>
+
+    <script src="lib/angular/angular.js"></script>
+    <script type="text/javascript">
+        function PlaygroundController($scope) {
+            $scope.message="Welcome to my playground!";
+        }
+    </script>
+</html>
