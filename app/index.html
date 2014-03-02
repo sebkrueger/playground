@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en" ng-app="jobsApp">
+<head>
+    <meta charset="utf-8">
+    <title>AngularJS playground</title>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+<ul class="list-group">
+    <a href="#" class="list-group-item" ng-repeat="job in jobs">
+    <h4>{{job.title}}</h4>
+    <p>{{job.category}}</p>
+    <div class="well well-sm">
+        <strong>{{job.company.name}}</strong><br />
+        URL: {{job.company.url}}<br/>
+        E-Mail: {{job.company.email}}<br />
+    </div>
+    </a>
+</ul>
+<script src="lib/jquery/jquery-2.1.0.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="lib/angular/angular.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controllers/JobController.js"></script>
+</body>
+</html>

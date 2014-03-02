@@ -1,8 +1,9 @@
-#do not ignore a gitignore file
-!.gitignore
-
-#ignore idea files created by phpstorm
-.idea/*
+logs/*
+!.gitkeep
+node_modules/
+tmp
+.DS_Store
+.idea
 
 #ingnore Atlassin ide Files everyone has an own connection
 atlassian-ide-plugin.xml
