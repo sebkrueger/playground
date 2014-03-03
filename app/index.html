@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
 </head>
 <body>
-<ul class="list-group">
+<ul class="list-group" ng-controller="JobController">
     <a href="#" class="list-group-item" ng-repeat="job in jobs">
     <h4>{{job.title}}</h4>
     <p>{{job.category}}</p>
