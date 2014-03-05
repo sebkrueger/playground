@@ -23,7 +23,11 @@
             </div>
         </div>
             <ul class="list-group">
-            <a href="#" class="list-group-item" ng-repeat="job in jobs | filter:jobTitleFilter">
+            <a href="#" class="list-group-item" ng-repeat="job in jobs | filter:jobTitleFilter | orderBy:'votes':'true'">
+            <span class="badge">{{job.votes}}</span>
+            <button type="button" class="btn btn-default btn-sm" ng-click="voteUp(job)">
+                <span class="glyphicon glyphicon-thumbs-up"></span> Vote up
+            </button>
             <h4>{{job.title}}</h4>
             <p>{{job.category}}</p>
             <div class="well well-sm" ng-show="includeCompanyDetails">

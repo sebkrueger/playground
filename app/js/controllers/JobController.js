@@ -9,7 +9,8 @@ jobsApp.controller('JobController',function JobController($scope){
                 name: "Some Company",
                 url: "www.herewego.com",
                 email: "somemail@herwego.com"
-            }
+            },
+            votes: 0
         },
         {
             title: "Second Job ABC",
@@ -18,7 +19,8 @@ jobsApp.controller('JobController',function JobController($scope){
                 name: "Some Other Company",
                 url: "www.tehreis.com",
                 email: "mail@web.com"
-            }
+            },
+            votes: 0
         },
         {
             title: "Third Job ABC",
@@ -27,7 +29,13 @@ jobsApp.controller('JobController',function JobController($scope){
                 name: "Some Brand New Startup",
                 url: "www.sturtup.com",
                 email: "jobs@devnull.com"
-            }
+            },
+            votes: 0
         }
     ];
+
+    // Vote Function
+    $scope.voteUp = function(job) {
+        job.votes++;
+    };
 });
