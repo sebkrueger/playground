@@ -6,17 +6,30 @@
     <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
 </head>
 <body>
-<ul class="list-group" ng-controller="JobController">
-    <a href="#" class="list-group-item" ng-repeat="job in jobs">
-    <h4>{{job.title}}</h4>
-    <p>{{job.category}}</p>
-    <div class="well well-sm">
-        <strong>{{job.company.name}}</strong><br />
-        URL: {{job.company.url}}<br/>
-        E-Mail: {{job.company.email}}<br />
+<div class="container" ng-controller="JobController" style="margin-top: 20px">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3>Job List</h3>
+        </div>
+        <div class="well">
+            <p>Search field full text ...</p>
+            <div class="form-group">
+                <input class="form-control" type="text" ng-model="jobTitleFilter.title" />
+            </div>
+        </div>
+            <ul class="list-group">
+            <a href="#" class="list-group-item" ng-repeat="job in jobs | filter:jobTitleFilter">
+            <h4>{{job.title}}</h4>
+            <p>{{job.category}}</p>
+            <div class="well well-sm">
+                <strong>{{job.company.name}}</strong><br />
+                URL: {{job.company.url}}<br/>
+                E-Mail: {{job.company.email}}<br />
+            </div>
+            </a>
+        </ul>
     </div>
-    </a>
-</ul>
+</div>
 <script src="lib/jquery/jquery-2.1.0.min.js"></script>
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="lib/angular/angular.js"></script>
