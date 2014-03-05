@@ -16,12 +16,17 @@
             <div class="form-group">
                 <input class="form-control" type="text" ng-model="jobTitleFilter.title" />
             </div>
+            <div class="form-group">
+                <label class="checkbox-inline">
+                    <input type="checkbox" ng-model="includeCompanyDetails" id="inlineCheckbox" value="true" />Show Company Details
+                </label>
+            </div>
         </div>
             <ul class="list-group">
             <a href="#" class="list-group-item" ng-repeat="job in jobs | filter:jobTitleFilter">
             <h4>{{job.title}}</h4>
             <p>{{job.category}}</p>
-            <div class="well well-sm">
+            <div class="well well-sm" ng-show="includeCompanyDetails">
                 <strong>{{job.company.name}}</strong><br />
                 URL: {{job.company.url}}<br/>
                 E-Mail: {{job.company.email}}<br />
