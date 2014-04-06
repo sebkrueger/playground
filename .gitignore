@@ -3,7 +3,3 @@ logs/*
 node_modules/
 tmp
 .DS_Store
-.idea
-
-#ingnore Atlassin ide Files everyone has an own connection
-atlassian-ide-plugin.xml

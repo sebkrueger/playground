@@ -1,0 +1,5 @@
+# Ignore everything in this directory
+*
+# Except the config templates file
+!.gitignore
+!*.template.json
