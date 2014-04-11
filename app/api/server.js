@@ -6,7 +6,7 @@
 var express     = require("express");
 var app         = express();
 var mongoose    = require("mongoose");
-var port        = process.env.PORT || 8080;
+var port        = process.env.PORT || 8099;
 var database    = require("./config/mongodbconfig.json");
 
 // Configuration of Database
@@ -32,6 +32,8 @@ app.configure(function() {
 
 // Routes
 app.get('/api/jobs', function (req, res) {
+    // Allow everyone to connect playground has not much to hide here
+    res.setHeader("Access-Control-Allow-Origin", "*");
     Job.find(function(err, jobs) {
         if (err) {
             res.send(err);
