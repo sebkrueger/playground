@@ -1,20 +1,19 @@
 body {
-    background: #00baf2;
+    background: #c1d3f2;
 }
-
 
 .grid {
     max-width: 69em;
     list-style: none;
-    margin: 30px auto;
+    margin: 10px auto;
     padding: 0;
 }
 
 .grid li {
     display: block;
     float: left;
-    padding: 7px;
-    width: 33%;
+    padding: 3px;
+    width: 30%;
 }
 
 .grid li img {
