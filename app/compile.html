@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="utf-8">
+    <title>AngularJS Compile Service</title>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container" style="margin-top: 20px">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3>Compile Service Test</h3>
+        </div>
+        <div class="well" ng-controller="CompileTestController">
+            <div class="form-group">
+                <div id="appendDiv"></div>
+                Value: <input type="text" ng-model="Value" /><br/><br/>
+                Markup to Compile: <input type="text" ng-model="Markup" /><br/><br/>
+                <button ng-click="appendDivToElement(Markup)">Append</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="lib/jquery/jquery-2.1.0.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="lib/angular/angular.js"></script>
+
+<script type="text/javascript">
+    function CompileTestController($scope, $compile) {
+        $scope.appendDivToElement = function(markup) {
+            return $compile(markup)($scope).appendTo(angular.element("#appendDiv"));
+        };
+    }
+</script>
+</body>
+</html>
