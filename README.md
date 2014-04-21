@@ -34,3 +34,8 @@ Open second system console *cd* to subdir */app* and start the REST server to ac
     $ node ./api/server.js
 
 When you get your db data in json format under URL **http://localhost:8080/app/jobs** everthing works fine.
+
+Masonry test
+------------
+
+Under folder **/masonry** resist a small testpage of masonry first step not connect with Angular app.

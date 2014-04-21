@@ -2,7 +2,7 @@ jobsApp.factory('jobData', function($resource, $q) {
    return {
        getJobs: function() {
            var deferred = $q.defer();
-           $resource('http://localhost:8099/api/jobs').query(
+           $resource('http://localhost:8100/api/jobs').query(
                function (jobs) {
                    deferred.resolve(jobs);
                },
