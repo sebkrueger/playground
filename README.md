@@ -39,3 +39,8 @@ Masonry test
 ------------
 
 Under folder **/masonry** resist a small testpage of masonry first step not connect with Angular app.
+
+Nodejs Part
+-----------
+
+Under subfolder **/nodejs** resist some scripts with javascript codeexamples
