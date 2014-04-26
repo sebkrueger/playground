@@ -6,43 +6,28 @@
     <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
 </head>
 <body>
-<div class="container" ng-controller="JobController" style="margin-top: 20px">
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <h3>Job List</h3>
-        </div>
-        <div class="well">
-            <p>Search field full text ...</p>
-            <div class="form-group">
-                <input class="form-control" type="text" ng-model="jobTitleFilter.title" />
-            </div>
-            <div class="form-group">
-                <label class="checkbox-inline">
-                    <input type="checkbox" ng-model="includeCompanyDetails" id="inlineCheckbox" value="true" />Show Company Details
-                </label>
-            </div>
-        </div>
-            <ul class="list-group">
-            <a href="#" class="list-group-item" ng-repeat="job in jobs | filter:jobTitleFilter | orderBy:'votes':'true'">
-            <span class="badge">{{job.votes}}</span>
-            <button type="button" class="btn btn-default btn-sm" ng-click="voteUp(job)">
-                <span class="glyphicon glyphicon-thumbs-up"></span> Vote up
-            </button>
-            <h4>{{job.title}}</h4>
-            <p>{{job.category}}</p>
-            <div class="well well-sm" ng-show="includeCompanyDetails">
-                <strong>{{job.company.name}}</strong><br />
-                URL: {{job.company.url}}<br/>
-                E-Mail: {{job.company.email}}<br />
-            </div>
-            </a>
-        </ul>
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+
     </div>
+    <a class="navbar-brand" href="/">PLAYGROUND</a>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation" id="jb-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li><a href="/">Jobs List</a></li>
+            <li><a href="/newJob">Post new Job</a></li>
+        </ul>
+    </nav>
+</nav>
+
+<div class="container" style="margin-top: 70px">
+    <ng-view></ng-view>
 </div>
 <script src="lib/jquery/jquery-2.1.0.min.js"></script>
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="lib/angular/angular.js"></script>
 <script src="lib/angular/angular-resource.min.js"></script>
+<script src="lib/angular/angular-route.js"></script>
 <script src="js/app.js"></script>
 <script src="js/service/JobDataService.js"></script>
 <script src="js/controllers/JobController.js"></script>
