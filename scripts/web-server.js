@@ -206,6 +206,8 @@ StaticServlet.prototype.sendDirectory_ = function(req, res, path) {
         if (stat.isDirectory()) {
           files[index] = fileName + '/';
         }
+        if (fileName == 'index.html')
+          return self.sendFile_(req, res, path + '/' + fileName);
         if (!(--remaining))
           return self.writeDirectoryIndex_(req, res, path, files);
       });
