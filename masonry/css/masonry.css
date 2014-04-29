@@ -2,6 +2,13 @@ body {
     background: #c1d3f2;
 }
 
+#content {
+    max-width: 72em;
+    margin: 10px auto;
+    background-color: #fffdc1;
+    border: 1px solid #000;
+}
+
 .grid {
     max-width: 69em;
     list-style: none;
@@ -21,4 +28,8 @@ body {
     border: none;
     display: block;
     max-width: 100%;
+}
+
+.cboth {
+    clear: both;
 }
