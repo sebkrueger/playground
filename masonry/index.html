@@ -8,17 +8,19 @@
     <link rel="stylesheet" type="text/css" href="css/masonry.css">
     <script type="text/javascript" src="js/masonry.pkgd.js"></script>
     <script type="text/javascript">
-        var container = document.querySelector('#grid');
-        var msnry = new Masonry( container, {
-            // options
-            columnWidth: 200,
-            itemSelector: '.item'
-        });
+        window.onload = function() {
+            var container = document.getElementById('gridid');
+            var msnry = new Masonry( container, {
+                // options
+                columnWidth: 300,
+                itemSelector: '.item'
+            });
+        }
     </script>
 </head>
 <body>
 <div id="content">
-<ul class="grid" id="grid">
+<ul class="grid" id="gridid">
     <li class="item"><img src="img/pic1.jpg" /></li>
     <li class="item"><img src="img/pic2.jpg" /></li>
     <li class="item"><img src="img/pic3.jpg" /></li>
