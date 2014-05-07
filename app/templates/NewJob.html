@@ -28,6 +28,48 @@
                         <span ng-show="newJobForm.jobCategory.$invalid && !newJobForm.jobTitle.$pristine" class="help-block">Job Category is required.</span>
                     </div>
                 </div>
+                <div class="well">
+                    <div class="form-group" ng-class="{
+                        'has-error' : newJobForm.companyName.$invalid && !newJobForm.companyName.$pristine
+                    }">
+                        <label for="companyName" class="col-sm-2 control-label">Company Name:</label>
+                        <div class="col-sm-10">
+                            <input name="companyName" type="text" class="form-control" required placeholder="Name of your company ..."
+                                   ng-model="job.company.name" />
+                            <span ng-show="newJobForm.companyName.$invalid && !newJobForm.companyName.$pristine" class="help-block">Company name is required.</span>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{
+                        'has-error' : newJobForm.companyUrl.$invalid && !newJobForm.companyUrl.$pristine
+                    }">
+                        <label for="companyUrl" class="col-sm-2 control-label">Company Url:</label>
+                        <div class="col-sm-10">
+                            <input name="companyUrl" type="text" class="form-control" required placeholder="URL of your companys Website ..."
+                                   ng-model="job.company.url" />
+                            <span ng-show="newJobForm.companyURL.$invalid && !newJobForm.companyURL.$pristine" class="help-block">Company URL is required.</span>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{
+                        'has-error' : newJobForm.companyEmail.$invalid && !newJobForm.companyEmail.$pristine
+                    }">
+                        <label for="companyEmail" class="col-sm-2 control-label">Company E-Mail:</label>
+                        <div class="col-sm-10">
+                            <input name="companyEmail" type="text" class="form-control" required placeholder="E-Mail of your company ..."
+                                   ng-model="job.company.email" />
+                            <span ng-show="newJobForm.companyEmail.$invalid && !newJobForm.companyEmail.$pristine" class="help-block">Company E-Mail is required.</span>
+                        </div>
+                    </div>
+                </div>
+                <br /><br />
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" ng-hide="editingJob" class="btn btn-primary" ng-click="saveJob(job, newJobForm)"
+                                ng-disabled="newJobForm.$invalid">Create New Job</button>
+                        <button type="submit" ng-hide="editingJob" class="btn btn-primary" ng-click="updateJob(job, newJobForm)"
+                                ng-disabled="newJobForm.$invalid">Update</button>
+                        <button type="button" class="btn btn-default" ng-click="cancelEdit()">Cancel</button>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
