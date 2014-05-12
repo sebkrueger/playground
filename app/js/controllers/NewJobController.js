@@ -17,7 +17,8 @@ jobsApp.controller('NewJobController',function NewJobController($scope, jobData)
         }
     };
 
-    $scope.cancelEdit = function(job, form) {
+    $scope.cancelEdit = function() {
+        console.log("Cancel Button");
         $location.url('/');
     };
 });

@@ -19,13 +19,13 @@
                     </div>
                 </div>
                 <div class="form-group" ng-class="{
-                    'has-error' : newJobForm.jobTitle.$invalid && !newJobForm.jobTitle.$pristine
+                    'has-error' : newJobForm.jobCategory.$invalid && !newJobForm.jobCategory.$pristine
                 }">
                     <label for="jobCategory" class="col-sm-2 control-label">Category:</label>
                     <div class="col-sm-10">
                         <input name="jobCategory" type="text" class="form-control" required placeholder="Category of Job ..."
-                               ng-model="job.title" ng-minlength="3" ng-maxlength="50" />
-                        <span ng-show="newJobForm.jobCategory.$invalid && !newJobForm.jobTitle.$pristine" class="help-block">Job Category is required.</span>
+                               ng-model="job.category" ng-minlength="3" ng-maxlength="50" />
+                        <span ng-show="newJobForm.jobCategory.$invalid && !newJobForm.jobCategory.$pristine" class="help-block">Job Category is required.</span>
                     </div>
                 </div>
                 <div class="well">
@@ -65,7 +65,7 @@
                     <div class="col-sm-offset-2 col-sm-10">
                         <button type="submit" ng-hide="editingJob" class="btn btn-primary" ng-click="saveJob(job, newJobForm)"
                                 ng-disabled="newJobForm.$invalid">Create New Job</button>
-                        <button type="submit" ng-hide="editingJob" class="btn btn-primary" ng-click="updateJob(job, newJobForm)"
+                        <button type="submit" ng-show="editingJob" class="btn btn-primary" ng-click="updateJob(job, newJobForm)"
                                 ng-disabled="newJobForm.$invalid">Update</button>
                         <button type="button" class="btn btn-default" ng-click="cancelEdit()">Cancel</button>
                     </div>
