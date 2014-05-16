@@ -40,6 +40,12 @@ Masonry test
 
 Under folder **/masonry** resist a small testpage of masonry first step not connect with Angular app.
 
+
+Crafty test
+------------
+
+Under folder **/jsgame** resist a small javascript game test based on crafty js lib.
+
 Nodejs Part
 -----------
 
