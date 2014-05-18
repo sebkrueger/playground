@@ -6,20 +6,21 @@ function initCrafty() {
     // Init canvas and paint background
     var canvas_width = 1000;
     var canvas_height = 500;
-    var figure_width = 100;
-    var figure_height = 20;
+    var bar_width = 100;
+    var bar_height = 20;
 
 
     Crafty.init(canvas_width, canvas_height);
     Crafty.background('rgb(30,30,30)');
 
-    // Add a new element / Entity
-    var figure = Crafty.e();
+    // add a bar as user steering element
+    var bar = Crafty.e();
 
     // give it shape
-    figure.addComponent("2D, Canvas, Color, LeftRightControl");
-    figure.color("red");
-    figure.attr({w:figure_width, h:figure_height});
+    bar.addComponent("2D, Canvas, Color, LeftRightControl");
+    bar.color("red");
+    bar.attr({w:bar_width, h:bar_height});
+    bar.y = canvas_height-bar_height-30;
 }
 
 Crafty.c("LeftRightControl",
@@ -58,8 +59,8 @@ Crafty.c("LeftRightControl",
                 // Bind KeyDown
                 if(this._moveX) {
                     // We have to move our object
-                    this.x += this._moveX * 32;
-                    this.trigger('Moved', {x: this.x, y: 0});
+                    this.x += this._moveX * 132;
+                    this.trigger('Moved', {x: this.x});
                 }
             });
         }
