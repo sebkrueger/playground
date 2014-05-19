@@ -21,6 +21,14 @@ function initCrafty() {
     bar.color("red");
     bar.attr({w:bar_width, h:bar_height});
     bar.y = canvas_height-bar_height-30;
+
+    // add the playball
+    var ball = Crafty.e();
+    ball.addComponent("2D, Canvas, Color");
+    ball.color("red");
+    ball.attr({w:15, h:15});
+    ball.x = canvas_width/2;
+    ball.y = canvas_height/2;
 }
 
 Crafty.c("LeftRightControl",
