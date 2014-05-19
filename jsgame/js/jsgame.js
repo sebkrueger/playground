@@ -24,12 +24,31 @@ function initCrafty() {
 
     // add the playball
     var ball = Crafty.e();
-    ball.addComponent("2D, Canvas, Color");
+    ball.addComponent("2D, Canvas, Color, BallMove");
     ball.color("red");
     ball.attr({w:15, h:15});
     ball.x = canvas_width/2;
     ball.y = canvas_height/2;
 }
+
+Crafty.c("BallMove",
+    {
+        // Make the ball move
+        init: function() {
+            this._moveX = 1;
+            this._moveY = 1;
+
+            this.bind("EnterFrame", function() {
+                if(this._moveX || this._moveY) {
+                    // We have to move our object
+                    this.x += this._moveX;
+                    this.y += this._moveY;
+                    this.trigger('Moved', {x: this.x, y: this.y});
+                }
+            });
+        }
+    }
+);
 
 Crafty.c("LeftRightControl",
     {
@@ -64,7 +83,6 @@ Crafty.c("LeftRightControl",
             });
 
             this.bind("EnterFrame", function() {
-                // Bind KeyDown
                 if(this._moveX) {
                     // We have to move our object
                     this.x += this._moveX * 132;
