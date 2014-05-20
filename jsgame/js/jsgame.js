@@ -21,6 +21,7 @@ function initCrafty() {
     bar.color("red");
     bar.attr({w:bar_width, h:bar_height});
     bar.y = canvas_height-bar_height-30;
+    bar.x = canvas_width/2;
 
     // add the playball
     var ball = Crafty.e();
@@ -29,6 +30,37 @@ function initCrafty() {
     ball.attr({w:15, h:15});
     ball.x = canvas_width/2;
     ball.y = canvas_height/2;
+
+    // draw wall
+    var wallthickness = 10;
+
+    var wall = Crafty.e();
+    wall.addComponent("2D, Canvas, Color");
+    wall.color("green");
+    wall.attr({w:canvas_width, h:wallthickness});
+    wall.x = 0;
+    wall.y = 0;
+
+    var wall = Crafty.e();
+    wall.addComponent("2D, Canvas, Color");
+    wall.color("green");
+    wall.attr({w:canvas_width, h:wallthickness});
+    wall.x = 0;
+    wall.y = canvas_height-wallthickness;
+
+    var wall = Crafty.e();
+    wall.addComponent("2D, Canvas, Color");
+    wall.color("green");
+    wall.attr({w:wallthickness, h:canvas_height-2*wallthickness});
+    wall.x = 0;
+    wall.y = 0+wallthickness;
+
+    var wall = Crafty.e();
+    wall.addComponent("2D, Canvas, Color");
+    wall.color("green");
+    wall.attr({w:wallthickness, h:canvas_height-2*wallthickness});
+    wall.x = canvas_width-wallthickness;
+    wall.y = 0+wallthickness;
 }
 
 Crafty.c("BallMove",
