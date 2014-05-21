@@ -25,38 +25,44 @@ function initCrafty() {
 
     // add the playball
     var ball = Crafty.e();
-    ball.addComponent("2D, Canvas, Color, BallMove");
+    ball.addComponent("2D, Canvas, Color, BallMove, Collision");
     ball.color("red");
     ball.attr({w:15, h:15});
     ball.x = canvas_width/2;
     ball.y = canvas_height/2;
 
+    // Hit detection
+    ball.onHit("Solid", function() {
+        // First bounce with fixed value!!
+        this._moveY = -1*this._moveY;
+    });
+
     // draw wall
     var wallthickness = 10;
 
     var wall = Crafty.e();
-    wall.addComponent("2D, Canvas, Color");
+    wall.addComponent("2D, Canvas, Color, Solid");
     wall.color("green");
     wall.attr({w:canvas_width, h:wallthickness});
     wall.x = 0;
     wall.y = 0;
 
     var wall = Crafty.e();
-    wall.addComponent("2D, Canvas, Color");
+    wall.addComponent("2D, Canvas, Color, Solid");
     wall.color("green");
     wall.attr({w:canvas_width, h:wallthickness});
     wall.x = 0;
     wall.y = canvas_height-wallthickness;
 
     var wall = Crafty.e();
-    wall.addComponent("2D, Canvas, Color");
+    wall.addComponent("2D, Canvas, Color, Solid");
     wall.color("green");
     wall.attr({w:wallthickness, h:canvas_height-2*wallthickness});
     wall.x = 0;
     wall.y = 0+wallthickness;
 
     var wall = Crafty.e();
-    wall.addComponent("2D, Canvas, Color");
+    wall.addComponent("2D, Canvas, Color, Solid");
     wall.color("green");
     wall.attr({w:wallthickness, h:canvas_height-2*wallthickness});
     wall.x = canvas_width-wallthickness;
@@ -67,8 +73,8 @@ Crafty.c("BallMove",
     {
         // Make the ball move
         init: function() {
-            this._moveX = 1;
-            this._moveY = 1;
+            this._moveX = 2;
+            this._moveY = 2;
 
             this.bind("EnterFrame", function() {
                 if(this._moveX || this._moveY) {
