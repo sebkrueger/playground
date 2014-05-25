@@ -31,6 +31,13 @@ function initCrafty() {
         this.x -= this._moveX * 132;
     });
 
+    // Audiofile for ball hit
+    Crafty.audio.add({
+        ball: ["sounds/ball.wav",
+               "sounds/ball.mp3",
+               "sounds.ogg"]
+    });
+
     // add the playball
     var ball = Crafty.e();
     ball.addComponent("2D, Canvas, Color, BallMove, Collision");
@@ -42,15 +49,20 @@ function initCrafty() {
     // Hit detection ball with wall
     ball.onHit("Wall_Top", function() {
         this._moveY = -1*this._moveY;
+        Crafty.audio.play("ball");
     }).onHit("Wall_Bottom", function() {
         this._moveY = -1*this._moveY;
+        Crafty.audio.play("ball");
     }).onHit("Wall_Left", function() {
         this._moveX = -1*this._moveX;
+        Crafty.audio.play("ball");
     }).onHit("Wall_Right", function() {
         this._moveX = -1*this._moveX;
+        Crafty.audio.play("ball");
     }).onHit("Red_Bar", function() {
         // now did't work with left and right bar end - funny effect ;)
         this._moveY = -1*this._moveY;
+        Crafty.audio.play("ball");
     });
 
     // draw wall
