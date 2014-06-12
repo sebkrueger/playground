@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>three.js test scene</title>
+    <script src="./js/three.js" type="text/javascript"></script>
+    <script src="./js/three_demo.js" type="text/javascript"></script>
+</head>
+<body>
+<script type="text/javascript">
+    var scene, camera, renderer;
+    var geometry, material, mesh;
+
+    init();
+    animate();
+
+    function init() {
+
+        scene = new THREE.Scene();
+
+        // Set camera with FOV, aspect ratio and near and far values
+        camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
+        // place camera in free room
+        camera.position.z = 1000;
+
+        // start with simple box
+        geometry = new THREE.BoxGeometry( 200, 200, 200 );
+        // add some texture to the cube
+        material = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true } );
+        // put the pices together
+        mesh = new THREE.Mesh( geometry, material );
+
+        // place the mesh in the scene
+        scene.add( mesh );
+
+        // Use canvas as render and use the hole window
+        renderer = new THREE.CanvasRenderer();
+        renderer.setSize( window.innerWidth, window.innerHeight );
+
+        // place renderer in html tree
+        document.body.appendChild( renderer.domElement );
+    }
+
+    function animate() {
+        // note: three.js includes requestAnimationFrame shim
+        requestAnimationFrame(animate);
+
+        // Rotate the cube in the room
+        mesh.rotation.x += 0.01;
+        mesh.rotation.y += 0.02;
+
+        renderer.render( scene, camera );
+    }
+</script>
+</body>
+</html>

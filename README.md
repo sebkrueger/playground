@@ -46,6 +46,13 @@ Crafty test
 
 Under folder **/jsgame** resist a small javascript game test based on crafty js lib.
 
+
+Three test
+------------
+
+Under folder **/three** you find a small test of the 3D javascript lib three.js.
+
+
 Nodejs Part
 -----------
 
